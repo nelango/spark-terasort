@@ -59,6 +59,8 @@ object TeraValidate {
 
     val dataset = sc.newAPIHadoopFile[Array[Byte], Array[Byte], TeraInputFormat](inputFile)
     validate(sc, dataset)
+    
+    System.exit(0) //explicitly exiting
   }
 
   def validate(sc : SparkContext, dataset: RDD[(Array[Byte], Array[Byte])]) : Unit = {
